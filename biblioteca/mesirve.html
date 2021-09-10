@@ -1,0 +1,173 @@
+<html>
+<head>
+<title></title>
+<script languaje="JavaScript">
+
+
+function avisoreset() {
+	if(confirm("�ATENCI�N!. Los datos del test se van a reiniciar.")) {
+	document.cuestionario.reset();
+	parent.location.reload();
+	}
+}
+
+var pregunta1 = "0"; 
+var pregunta2 = "0"; 
+var pregunta3 = "0"; 
+
+function respuesta1(valor) 
+{pregunta1 = valor}; 
+function respuesta2(valor) 
+{pregunta2 = valor}; 
+function respuesta3(valor) 
+{pregunta3 = valor}; 
+
+
+</script>
+</head>
+
+<body>
+<p>
+
+<br>
+<center><form name=cuestionario>
+
+<table width=600 border=1 align="center" bgcolor="#EEEEEE">
+
+<tr><td width="600">
+<b><font color="Blue">1. �Cu�ntas rectas pasan por un punto?</font></b>
+<blockquote>
+<input type="radio" name="pregunta1" value="A" onclick="respuesta1('A')">A. Infinitas.<br>
+<input type="radio" name="pregunta1" value="B" onclick="respuesta1('B')">B. Dos.<br> 
+<input type="radio" name="pregunta1" value="C" onclick="respuesta1('C')">C. Depende del tama�o del punto.<br> 
+</blockquote>
+</td></tr>
+
+<tr><td>
+<b><font color="Blue">2. Por un punto del espacio, �cu�ntas rectas paralelas a una pueden trazarse?</font></b>
+<blockquote>
+<input type="radio" name="pregunta2" value="A" onclick="respuesta2('A')">A. Ninguna.<br> 
+<input type="radio" name="pregunta2" value="B" onclick="respuesta2('B')">B. Una.<br> 
+<input type="radio" name="pregunta2" value="C" onclick="respuesta2('C')">C. Infinitas.<br><br>
+</blockquote>
+ </td></tr>
+ 
+<tr><td>
+<b><font color="Blue">3. Determine el resultado de la siguiente ecuaci�n: 7x - 28 = 6x - 1</font></b>
+<blockquote>
+<input type="radio" name="pregunta3" value="A" onclick="respuesta3('A')">A. x= 29.<br>
+<input type="radio" name="pregunta3" value="B" onclick="respuesta3('B')">B. x= 27.<br>
+<input type="radio" name="pregunta3" value="C" onclick="respuesta3('C')">C. x= 16.<br>
+</blockquote>
+</td></tr>
+
+
+<script language="JavaScript">
+
+<!--Ocultar c�digo
+function examinar() 
+{ 
+puntuacion=0; 
+nocontesta=0; 
+contestadas=0; 
+puntosmaximos=0; 
+
+if(pregunta1!= "0" )
+{
+  contestadas=contestadas+1
+  puntosmaximos=puntosmaximos+2
+  if(pregunta1 == "A") {puntuacion=puntuacion+2}
+  if(pregunta1 == "B") {puntuacion=puntuacion+0}
+  if(pregunta1 == "C") {puntuacion=puntuacion-1}
+}
+else {nocontesta=nocontesta+1} 
+
+if(pregunta2 != "0")
+{
+  contestadas=contestadas+1
+  puntosmaximos=puntosmaximos+1
+  if(pregunta2 == "A") {puntuacion=puntuacion+0}
+  if(pregunta2 == "B") {puntuacion=puntuacion+1}
+  if(pregunta2 == "C") {puntuacion=puntuacion+0}
+}
+else {nocontesta=nocontesta+1}
+
+if(pregunta3!= "0" )
+{
+  contestadas=contestadas+1
+  puntosmaximos=puntosmaximos+2
+  if(pregunta3 == "A") {puntuacion=puntuacion+0}
+  if(pregunta3 == "B") {puntuacion=puntuacion+2}
+  if(pregunta3 == "C") {puntuacion=puntuacion-1}
+}
+else {nocontesta=nocontesta+1} 
+
+//EVALUACION DEL EXAMEN  ************************************************
+
+if (puntosmaximos!=0) 
+{indiceacierto=Math.round(100*(puntuacion/puntosmaximos))
+} 
+else{indiceacierto=0} 
+
+
+if(indiceacierto==100) 
+{
+mensaje="SOBRESALIENTE. Sus conocimientos de matem�ticas son excelentes"} 
+if(indiceacierto<100&&indiceacierto>=75) 
+{
+mensaje="NOTABLE. Usted tiene una buena base de matem�ticas."} 
+if(indiceacierto<75&&indiceacierto>=50)
+{
+mensaje="BIEN. Puede defenderse con ayuda de una calculadora."} 
+if(indiceacierto<50&&indiceacierto>=25)
+{
+mensaje="JUSTILLO. Un repaso no le ir� nada mal."} 
+if(indiceacierto<25)
+{
+mensaje="DESASTROSO. Sin comentarios. Por cierto, dos y dos son cuatro"} 
+if(contestadas==0)
+{
+mensaje="Por favor, conteste alguna de las preguntas del test. �LISTILLO!"} 
+
+alert("Su puntuaci�n es "+puntuacion+"." +  "\n\nEl n�mero m�ximo de puntos que pod�a conseguir era de " + puntosmaximos + ".\n\nHa dejado sin contestar "+ nocontesta+".\n\nSu porcentaje de aciertos es de "+indiceacierto+"%.\n\n"+mensaje+". ") 
+
+}
+
+// Fin de ocultar-->
+</script>
+
+<tr><td bgcolor=white> 
+<br>
+<center>
+<input type="button" name="submit" value="Resultado del test" onclick="examinar()">
+<input type="button" name="Reset" value="Reinicar test" onclick="avisoreset()">
+<input type="button" name="solucion" value="Respuestas
+ correctas" onclick="alert('RESPUESTAS CORRECTAS\n\n1:A   6:A  11:B\n2:B   7:B  12:A\n3:B   8:A  13:B\n4:C   9:A  14:C\n5:B  10:C  15:A')">
+</center>
+</form>
+</td></tr>
+</table>
+<center>
+<img src="http://www.uv.es/~rvcirilo/LaNau/1_Javascript/Ejercicios/imagenes/Colorbar.gif" width=600 height=1 border=0 alt="Barra de separaci�n">
+</center>
+<br>
+<!-- Comienzo de la barra de control -->
+<center>
+<table border=0 bgcolor="#EEEEEE" width=597 cellpadding=3>
+<tr><td>
+<form method="get" action="http://www.uv.es/~rvcirilo/LaNau/1_Javascript/Ejercicios/principal.html">
+<center><input type="submit" value="Men� Principal">
+</center></td></form>
+<td>
+<form>
+<center><input type="button" value="Salir" onclick="self.close();">
+</center></td></form>
+<td><form>
+<center><input type="button" value="C�digo Fuente" onclick='location = "view-source:" + location.href'>
+</center></td></form>
+</tr>
+</table></center>
+</center>
+</form>
+</body>
+</html>
