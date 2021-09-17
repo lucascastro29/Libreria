@@ -26,4 +26,6 @@
   background-color: rgb(229, 245, 220);
   border: 1px black solid; 
 }
-
+.checked{
+  color: orange;
+}
