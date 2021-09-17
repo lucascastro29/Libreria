@@ -84,10 +84,3 @@ document.addEventListener("DOMContentLoaded",function(){
 
 
 
-
-//sofiagutierrez2606@gmail.com
-//agustinacaballero2001@gmail.com
-//gavf.vazquez@gmail.com
-///text-decoration: none;
-///resize: none
-//https://css-tricks.com/textarea-tricks/
